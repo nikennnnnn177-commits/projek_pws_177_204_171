@@ -67,5 +67,8 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## Dokumentasi Postman
 
-Link Dokumentasi:
+Link Dokumentasi Niken:
 https://documenter.getpostman.com/view/49209827/2sBXVZput2
+
+Link Dokumentasi Ratu:
+https://documenter.getpostman.com/view/49032510/2sBXVbHu6e
