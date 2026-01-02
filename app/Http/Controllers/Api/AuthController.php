@@ -13,6 +13,32 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
+
+    public function register(Request $request)
+{
+    $request->validate([
+        'name' => 'required|string|min:3',
+        'email' => 'required|email|unique:users,email',
+        'password' => 'required|min:6'
+    ]);
+
+    $user = \App\Models\User::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'password' => bcrypt($request->password)
+    ]);
+
+    $token = auth()->login($user);
+
+    return response()->json([
+        'message' => 'User registered successfully',
+        'user' => $user,
+        'access_token' => $token,
+        'token_type' => 'bearer',
+        'expires_in' => config('jwt.ttl') * 60
+    ], 201);
+}
+
     public function login(Request $request)
     {
         try {
